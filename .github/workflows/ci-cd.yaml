@@ -37,7 +37,7 @@ jobs:
       - name: Import Variables into Airflow-DEV
         run: |
           gcloud composer environments run airflow-composer-2 \
-            --location us-central1 \
+            --location asia-south1 \
             variables import -- /home/airflow/gcs/data/dev/variables.json
 
       # Sync Spark job to GCS
@@ -50,7 +50,7 @@ jobs:
         run: |
           gcloud composer environments storage dags import \
             --environment airflow-composer-2 \
-            --location us-central1 \
+            --location asia-south1 \
             --source airflow_job/airflow_job.py
 
   upload-to-prod:
